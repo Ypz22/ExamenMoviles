@@ -5,11 +5,11 @@ class TreeModel {
   TreeModel({required this.type, required this.quantity});
 
   double get unitPrice {
-    switch (type) {
+    switch (type.toLowerCase()) {
       case "palto":
         return 1.2;
       case "limon":
-        return 1;
+        return 1.0;
       case "chirimoyo":
         return 0.98;
       default:
@@ -17,9 +17,9 @@ class TreeModel {
     }
   }
 
-  double getDiscountByQuantity() {
+  double get discountRate {
     if (quantity > 300) {
-      switch (type) {
+      switch (type.toLowerCase()) {
         case "palto":
           return 0.18;
         case "limon":
@@ -28,7 +28,7 @@ class TreeModel {
           return 0.19;
       }
     } else if (quantity > 100) {
-      switch (type) {
+      switch (type.toLowerCase()) {
         case "palto":
           return 0.10;
         case "limon":
@@ -42,7 +42,7 @@ class TreeModel {
 
   double get subtotal => unitPrice * quantity;
 
-  double get discount => subtotal * getDiscountByQuantity();
+  double get discount => subtotal * discountRate;
 
   double get totalAfterDiscount => subtotal - discount;
 }
