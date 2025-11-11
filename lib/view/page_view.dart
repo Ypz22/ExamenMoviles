@@ -60,6 +60,15 @@ class _TreeViewState extends State<TreeView> {
             const SizedBox(height: 25),
             ButtonCalculate(onPressed: calculate),
             const SizedBox(height: 20),
+            Text(
+              message,
+              style: TextStyle(
+                color: message.contains("correctamente")
+                    ? Colors.green
+                    : Colors.red,
+                fontSize: 16,
+              ),
+            ),
             const SizedBox(height: 15),
 
           ],
