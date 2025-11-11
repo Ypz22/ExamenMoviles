@@ -3,7 +3,7 @@ import '../model/tree.dart';
 class TreeController {
   static const double extraDiscountLimit = 1000;
   static const double extraDiscountRate = 0.15;
-  static const double iva = 0.12;
+  static const double iva = 0.15;
 
   double calculateTotal(List<TreeModel> items) {
     for (var item in items) {
